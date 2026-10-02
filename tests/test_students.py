@@ -24,6 +24,14 @@ def test_search_is_case_insensitive(admin_client, make_student):
     assert "Amelia Chen" in response.text
 
 
+def test_search_matches_the_family_contact_name(admin_client, make_student):
+    make_student(name="Ella Nguyen", contact_name="Mai Nguyen")
+    make_student(name="Kai Lombardo", contact_name="Gina Lombardo")
+    r = admin_client.get("/students?q=Gina")
+    assert "Kai Lombardo" in r.text
+    assert "Ella Nguyen" not in r.text
+
+
 def test_create_student_redirects_and_shows_row(admin_client, db_session):
     response = admin_client.post(
         "/students/new",

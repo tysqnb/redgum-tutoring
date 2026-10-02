@@ -1,6 +1,6 @@
 """Student roll: search, validation and persistence."""
 
-from sqlalchemy import select
+from sqlalchemy import or_, select
 
 from app.db import OrmSession
 from app.models import Session, Student
@@ -10,7 +10,9 @@ def list_students(db: OrmSession, q: str = "") -> list[Student]:
     stmt = select(Student).order_by(Student.name)
     if q:
         like = f"%{q.strip()}%"
-        stmt = stmt.where(Student.name.ilike(like))
+        stmt = stmt.where(
+            or_(Student.name.ilike(like), Student.contact_name.ilike(like))
+        )
     return list(db.scalars(stmt).all())
 
 
