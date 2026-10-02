@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Schedule</h1>
+<div class="toolbar">
+  <a class="button secondary" href="/schedule?view=day&amp;date={{ anchor }}">Day</a>
+  <a class="button secondary" href="/schedule?view=week&amp;date={{ anchor }}">Week</a>
+  <a class="button secondary" href="/schedule?view={{ view }}&amp;date={{ days[0].isoformat() }}">Today</a>
+</div>
+{% for day in days %}
+  <div class="session-card">
+    <h2>{{ day.strftime('%A %d %B %Y') }}</h2>
+    {% for session in by_day[day] %}
+      <p>
+        {{ session.start_time|time12 }} &middot; {{ session.student.name }} with {{ session.tutor.name }}
+        <span class="muted">({{ session.subject }}, {{ session.duration_minutes }} min)</span>
+        {% if session.status == 'CANCELLED' %}<span class="cancelled">CANCELLED</span>{% endif %}
+      </p>
+    {% else %}
+      <p class="muted">No sessions.</p>
+    {% endfor %}
+  </div>
+{% endfor %}
+{% endblock %}

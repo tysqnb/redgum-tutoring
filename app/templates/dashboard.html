@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Dashboard</h1>
+<p>Welcome, {{ user.username }}. Everything Deb needs for the week is one page away.</p>
+<table>
+  <tr><th>Students on the roll</th><td>{{ student_count }}</td></tr>
+  <tr><th>Tutors</th><td>{{ tutor_count }}</td></tr>
+  <tr><th>Sessions this week</th><td>{{ session_count }}</td></tr>
+</table>
+<p class="muted">Bookings can only sit inside a tutor's published availability window.</p>
+{% endblock %}

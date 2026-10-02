@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>My sessions</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Student</th>
+      <th>Subject</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for session in sessions %}
+    <tr>
+      <td>{{ session.date }}</td>
+      <td>{{ session.start_time|time12 }}</td>
+      <td>{{ session.student.name }}</td>
+      <td>{{ session.subject }}</td>
+      <td>{{ session.notes or "" }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% if not sessions %}<p class="muted">No upcoming sessions.</p>{% endif %}
+{% endblock %}
