@@ -1,5 +1,5 @@
-﻿Captured from commit ed85869 on 2026-10-02 12:25 (local time).
+﻿Captured from commit 5d30ba8 on 2026-10-02 23:13 (local time).
 
-e5809d4 Merge pull request #5 from story/05-availability: edit windows and reject duplicates
-1edafd1 Merge pull request #4 from story/04-tutors: search by subject and bound field lengths
-48dea18 Merge pull request #3 from story/03-students: search by family contact and bound field lengths
+c7b510c Merge pull request #3 from story/05-availability: edit windows and reject duplicates
+28d4112 Merge pull request #2 from story/04-tutors: search by subject and bound field lengths
+17bbe40 Merge pull request #1 from story/03-students: search by family contact and bound field lengths

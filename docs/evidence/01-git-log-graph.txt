@@ -1,27 +1,28 @@
-﻿Captured from commit ed85869 on 2026-10-02 12:25 (local time).
+﻿Captured from commit 5d30ba8 on 2026-10-02 23:13 (local time).
 
-* ed85869 (HEAD -> main) docs: capture final repository evidence
-* 7d4377d docs: refresh evidence captures after the cache fix
-* 20b9ae2 fix(build): keep the uv cache inside the project directory
-* cfb8894 docs: refresh evidence captures to the final commit
-* c64daa6 docs: add repository evidence captures
-* 7c723d4 (tag: v0.2.0) chore: bump version to 0.2.0
-* ed65227 docs: record the five story tasks and the 0.2.0 changes
-* 50191e6 fix(app): replace deprecated startup event with lifespan
-* 5d4b5d7 fix(availability): order windows by weekday, not day name
-*   e5809d4 Merge pull request #5 from story/05-availability: edit windows and reject duplicates
+* 5d30ba8 (HEAD -> main, origin/main, origin/HEAD) docs: capture repository evidence for the submitted tree
+* d979d5b docs: capture final repository evidence
+* 24b5a4a docs: refresh evidence captures after the cache fix
+* d8edb85 fix(build): keep the uv cache inside the project directory
+* d97a6a7 docs: refresh evidence captures to the final commit
+* 27f8dbc docs: add repository evidence captures
+* 4d74efb (tag: v0.2.0) chore: bump version to 0.2.0
+* c629a20 docs: record the five story tasks and the 0.2.0 changes
+* 25984f0 fix(app): replace deprecated startup event with lifespan
+* bd9da20 fix(availability): order windows by weekday, not day name
+*   c7b510c Merge pull request #3 from story/05-availability: edit windows and reject duplicates
 |\  
-| * 2398eb4 (story/05-availability) feat(story-05): reject duplicate availability windows
-| * 0594166 feat(story-05): edit availability windows
+| * a408a93 (origin/story/05-availability, story/05-availability) feat(story-05): reject duplicate availability windows
+| * 7b913d2 feat(story-05): edit availability windows
 |/  
-*   1edafd1 Merge pull request #4 from story/04-tutors: search by subject and bound field lengths
+*   28d4112 Merge pull request #2 from story/04-tutors: search by subject and bound field lengths
 |\  
-| * 6c8f5d3 (story/04-tutors) feat(story-04): bound tutor field lengths
-| * 059be2d feat(story-04): search tutors by subject
+| * ad69e4d (origin/story/04-tutors, story/04-tutors) feat(story-04): bound tutor field lengths
+| * 638e915 feat(story-04): search tutors by subject
 |/  
-*   48dea18 Merge pull request #3 from story/03-students: search by family contact and bound field lengths
+*   17bbe40 Merge pull request #1 from story/03-students: search by family contact and bound field lengths
 |\  
-| * 2255232 (story/03-students) feat(story-03): bound student field lengths
+| * 2255232 (origin/story/03-students, story/03-students) feat(story-03): bound student field lengths
 | * f7e8b2d feat(story-03): search students by family contact
 |/  
 * 80475a4 (tag: v0.1.0) docs: add keep-a-changelog for the baseline release
