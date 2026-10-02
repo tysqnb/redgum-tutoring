@@ -1,8 +1,12 @@
-﻿Captured from commit ed85869 on 2026-10-02 12:25 (local time).
+﻿Captured from commit f52195f on 2026-10-02 23:14 (local time).
 
 Command: uv run pytest -q -p no:warnings
 Exit code: 0
 
+   Building redgum-tutoring @ file:///C:/Users/Administrator/Documents/ChatGPT/%E7%8E%8B%E9%BE%99%E4%BD%9C%E4%B8%9A/redgum-tutoring
+      Built redgum-tutoring @ file:///C:/Users/Administrator/Documents/ChatGPT/%E7%8E%8B%E9%BE%99%E4%BD%9C%E4%B8%9A/redgum-tutoring
+Uninstalled 1 package in 17ms
+Installed 1 package in 6ms
 ........................................................................ [ 76%]
 ......................                                                   [100%]
-94 passed in 11.42s
+94 passed in 12.27s

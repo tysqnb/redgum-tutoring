@@ -1,6 +1,7 @@
-﻿Captured from commit 5d30ba8 on 2026-10-02 23:13 (local time).
+﻿Captured from commit f52195f on 2026-10-02 23:14 (local time).
 
-* 5d30ba8 (HEAD -> main, origin/main, origin/HEAD) docs: capture repository evidence for the submitted tree
+* f52195f (HEAD -> main, origin/main, origin/HEAD) docs: capture repository evidence for the published tree
+* 5d30ba8 docs: capture repository evidence for the submitted tree
 * d979d5b docs: capture final repository evidence
 * 24b5a4a docs: refresh evidence captures after the cache fix
 * d8edb85 fix(build): keep the uv cache inside the project directory
