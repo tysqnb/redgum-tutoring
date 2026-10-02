@@ -90,3 +90,19 @@ def test_validate_window_form_parses_times():
 def test_validate_window_form_rejects_unknown_day():
     data, errors = validate_window_form("FUNDAY", "15:30", "19:00")
     assert "Choose a day of the week." in errors
+
+
+def test_edit_window(admin_client, tutor_record, db_session):
+    window = tutor_record.windows[0]
+    r = admin_client.post(
+        f"/availability/{window.id}/edit",
+        data={
+            "day_of_week": "TUESDAY",
+            "start_time": "16:00",
+            "end_time": "19:00",
+        },
+        follow_redirects=False,
+    )
+    assert r.status_code == 303
+    db_session.refresh(window)
+    assert window.start_time == time(16, 0)
