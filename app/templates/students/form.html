@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{% if student %}Edit {{ student.name }}{% else %}Add a student{% endif %}</h1>
+{% if errors %}
+  <div class="errors"><ul>
+    {% for error in errors %}<li>{{ error }}</li>{% endfor %}
+  </ul></div>
+{% endif %}
+<form method="post" action="{% if student %}/students/{{ student.id }}/edit{% else %}/students/new{% endif %}">
+  <label>Name
+    <input type="text" name="name" value="{{ form.get('name', '') }}">
+  </label>
+  <div class="row">
+    <label>Year level
+      <select name="year_level">
+        <option value="">Choose a year</option>
+        {% for year in ["7", "8", "9", "10", "11", "12"] %}
+          <option value="{{ year }}" {% if form.get('year_level') == year %}selected{% endif %}>{{ year }}</option>
+        {% endfor %}
+      </select>
+    </label>
+    <label>School
+      <input type="text" name="school" value="{{ form.get('school', '') }}">
+    </label>
+  </div>
+  <label>Family contact name
+    <input type="text" name="contact_name" value="{{ form.get('contact_name', '') }}">
+  </label>
+  <div class="row">
+    <label>Family contact phone
+      <input type="text" name="contact_phone" value="{{ form.get('contact_phone', '') }}">
+    </label>
+    <label>Family contact email
+      <input type="text" name="contact_email" value="{{ form.get('contact_email', '') }}">
+    </label>
+  </div>
+  <label>Subjects
+    <input type="text" name="subjects" value="{{ form.get('subjects', '') }}" placeholder="e.g. Maths, Physics">
+  </label>
+  <p>
+    <button type="submit">{% if student %}Save{% else %}Add student{% endif %}</button>
+    <a class="button secondary" href="/students">Cancel</a>
+  </p>
+</form>
+{% endblock %}

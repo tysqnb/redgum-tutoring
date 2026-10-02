@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ student.name }}</h1>
+<p class="muted">
+  {{ student.school or "School not recorded" }}, year {{ student.year_level }}
+  &middot; contact {{ student.contact_name }} ({{ student.contact_phone }})
+</p>
+<p><a class="button secondary" href="/students">Back to students</a></p>
+<h2>Session history</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Tutor</th>
+      <th>Subject</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for session in sessions %}
+    <tr class="{% if session.status == 'CANCELLED' %}cancelled{% endif %}">
+      <td>{{ session.date }}</td>
+      <td>{{ session.start_time|time12 }}</td>
+      <td>{{ session.tutor.name }}</td>
+      <td>{{ session.subject }}</td>
+      <td>{{ session.status }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% if not sessions %}<p class="muted">No sessions booked yet.</p>{% endif %}
+{% endblock %}
