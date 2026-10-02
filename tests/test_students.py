@@ -66,6 +66,21 @@ def test_create_requires_name(admin_client, db_session):
     assert db_session.query(Student).count() == 0
 
 
+def test_over_length_name_is_rejected(admin_client, db_session):
+    r = admin_client.post(
+        "/students/new",
+        data={
+            "name": "x" * 101,
+            "year_level": "11",
+            "contact_name": "Y",
+            "contact_phone": "0400",
+        },
+    )
+    assert r.status_code == 400
+    assert "Student name must be 100 characters or fewer." in r.text
+    assert db_session.query(Student).count() == 0
+
+
 def test_create_requires_year_level(admin_client):
     response = admin_client.post(
         "/students/new",

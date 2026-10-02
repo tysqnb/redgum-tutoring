@@ -31,9 +31,13 @@ def validate_student_form(
     name = name.strip()
     if not name:
         errors.append("Student name is required.")
+    elif len(name) > 100:
+        errors.append("Student name must be 100 characters or fewer.")
     data["name"] = name
 
     school = school.strip()
+    if len(school) > 120:
+        errors.append("School must be 120 characters or fewer.")
     data["school"] = school
 
     year_level = year_level.strip()
@@ -44,17 +48,25 @@ def validate_student_form(
     contact_name = contact_name.strip()
     if not contact_name:
         errors.append("Family contact name is required.")
+    elif len(contact_name) > 100:
+        errors.append("Family contact name must be 100 characters or fewer.")
     data["contact_name"] = contact_name
 
     contact_phone = contact_phone.strip()
     if not contact_phone:
         errors.append("Family contact phone is required.")
+    elif len(contact_phone) > 20:
+        errors.append("Family contact phone must be 20 characters or fewer.")
     data["contact_phone"] = contact_phone
 
     contact_email = contact_email.strip()
+    if len(contact_email) > 120:
+        errors.append("Family contact email must be 120 characters or fewer.")
     data["contact_email"] = contact_email
 
     subjects = subjects.strip()
+    if len(subjects) > 200:
+        errors.append("Subjects must be 200 characters or fewer.")
     data["subjects"] = subjects
 
     return data, errors
