@@ -70,9 +70,12 @@ The suite runs against an in-memory SQLite database and does not touch
 
 | Story | Branch | Change |
 |---|---|---|
-| Story 03 | `story/03-students` | Search students by family contact name; bound field lengths |
-| Story 04 | `story/04-tutors` | Search tutors by subject; bound field lengths |
-| Story 05 | `story/05-availability` | Edit availability windows; reject duplicate windows |
+| 03a | `story/03-students` | Search students by family contact name |
+| 03b | `story/03-students` | Bound student field lengths |
+| 04a | `story/04-tutors` | Search tutors by subject |
+| 04b | `story/04-tutors` | Bound tutor field lengths |
+| 05a | `story/05-availability` | Edit availability windows |
+| 05b | `story/05-availability` | Reject duplicate availability windows |
 
 Each story branch is merged into `main` with a real merge commit
 (`git merge --no-ff`) that stands in for the pull request merge.
