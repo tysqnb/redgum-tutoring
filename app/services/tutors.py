@@ -1,6 +1,6 @@
 """Tutor roll: search, validation and persistence."""
 
-from sqlalchemy import select
+from sqlalchemy import or_, select
 
 from app.db import OrmSession
 from app.models import Tutor
@@ -10,7 +10,9 @@ def list_tutors(db: OrmSession, q: str = "") -> list[Tutor]:
     stmt = select(Tutor).order_by(Tutor.name)
     if q:
         like = f"%{q.strip()}%"
-        stmt = stmt.where(Tutor.name.ilike(like))
+        stmt = stmt.where(
+            or_(Tutor.name.ilike(like), Tutor.subjects.ilike(like))
+        )
     return list(db.scalars(stmt).all())
 
 

@@ -19,6 +19,11 @@ def test_search_filters_by_name(admin_client, tutor_record, db_session):
     assert "Tomás Ferreira" not in response.text
 
 
+def test_search_matches_subjects(admin_client, tutor_record):
+    assert "Tomás Ferreira" in admin_client.get("/tutors?q=Physics").text
+    assert "Tomás Ferreira" not in admin_client.get("/tutors?q=Nuclear").text
+
+
 def test_create_tutor_redirects_and_shows_row(admin_client, db_session):
     response = admin_client.post(
         "/tutors/new",
