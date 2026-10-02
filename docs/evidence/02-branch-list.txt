@@ -1,4 +1,6 @@
-* main                  20b9ae2 fix(build): keep the uv cache inside the project directory
+﻿Captured from commit 9638e00 on 2026-10-02 12:24 (local time).
+
+* main                  9638e00 docs: capture final repository evidence
   story/03-students     2255232 feat(story-03): bound student field lengths
   story/04-tutors       6c8f5d3 feat(story-04): bound tutor field lengths
   story/05-availability 2398eb4 feat(story-05): reject duplicate availability windows

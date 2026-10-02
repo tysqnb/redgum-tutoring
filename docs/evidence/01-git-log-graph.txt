@@ -1,4 +1,8 @@
-* 20b9ae2 (HEAD -> main) fix(build): keep the uv cache inside the project directory
+﻿Captured from commit 9638e00 on 2026-10-02 12:24 (local time).
+
+* 9638e00 (HEAD -> main) docs: capture final repository evidence
+* 7d4377d docs: refresh evidence captures after the cache fix
+* 20b9ae2 fix(build): keep the uv cache inside the project directory
 * cfb8894 docs: refresh evidence captures to the final commit
 * c64daa6 docs: add repository evidence captures
 * 7c723d4 (tag: v0.2.0) chore: bump version to 0.2.0
