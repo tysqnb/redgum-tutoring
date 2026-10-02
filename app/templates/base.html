@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Redgum Tutoring</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <span class="brand">Redgum Tutoring</span>
+      <a href="/">Dashboard</a>
+      <a href="/students">Students</a>
+      <a href="/tutors">Tutors</a>
+      <a href="/schedule">Schedule</a>
+      <a href="/my-sessions">My sessions</a>
+      <form class="inline" method="post" action="/logout">
+        <button type="submit">Log out</button>
+      </form>
+    </nav>
+  </header>
+  <main>
+    {% for message in flashes %}
+      <p class="flash">{{ message }}</p>
+    {% endfor %}
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

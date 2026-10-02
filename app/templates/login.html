@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in - Redgum Tutoring</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main>
+    <h1>Redgum Tutoring</h1>
+    <p class="muted">Sign in to manage the timetable.</p>
+    {% for message in flashes %}
+      <p class="flash">{{ message }}</p>
+    {% endfor %}
+    {% if errors %}
+      <div class="errors"><ul>
+        {% for error in errors %}<li>{{ error }}</li>{% endfor %}
+      </ul></div>
+    {% endif %}
+    <form method="post" action="/login">
+      <label>Username
+        <input type="text" name="username" value="{{ username }}" autofocus>
+      </label>
+      <label>Password
+        <input type="password" name="password">
+      </label>
+      <p><button type="submit">Sign in</button></p>
+    </form>
+  </main>
+</body>
+</html>
