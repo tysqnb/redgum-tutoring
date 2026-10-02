@@ -1,0 +1,34 @@
+* 227988c (HEAD -> main) docs: add repository evidence captures
+* 7c723d4 (tag: v0.2.0) chore: bump version to 0.2.0
+* ed65227 docs: record the five story tasks and the 0.2.0 changes
+* 50191e6 fix(app): replace deprecated startup event with lifespan
+* 5d4b5d7 fix(availability): order windows by weekday, not day name
+*   e5809d4 Merge pull request #5 from story/05-availability: edit windows and reject duplicates
+|\  
+| * 2398eb4 (story/05-availability) feat(story-05): reject duplicate availability windows
+| * 0594166 feat(story-05): edit availability windows
+|/  
+*   1edafd1 Merge pull request #4 from story/04-tutors: search by subject and bound field lengths
+|\  
+| * 6c8f5d3 (story/04-tutors) feat(story-04): bound tutor field lengths
+| * 059be2d feat(story-04): search tutors by subject
+|/  
+*   48dea18 Merge pull request #3 from story/03-students: search by family contact and bound field lengths
+|\  
+| * 2255232 (story/03-students) feat(story-03): bound student field lengths
+| * f7e8b2d feat(story-03): search students by family contact
+|/  
+* 80475a4 (tag: v0.1.0) docs: add keep-a-changelog for the baseline release
+* 092abd9 ci: run the test suite on push and pull request
+* 55863b8 build: add Dockerfile and compose deployment files
+* a1c3374 test: cover auth, students, tutors, availability and schedule
+* 0dac16b feat(app): wire routes, static assets and demo seed data
+* 99a93ad feat(schedule): add schedule and my-sessions views
+* 4db8368 feat(availability): add weekly availability windows
+* 46b2eaf feat(tutors): add tutor roll with search
+* 9dc5620 feat(students): add coordinator student list with search
+* 36a28b8 feat(auth): add login, logout and role guards
+* f70b766 feat(security): hash passwords with scrypt and sign session cookies
+* cbcd8e6 feat(models): define student, tutor, availability and session models
+* 0dc6e4b feat(config): add settings and database layer
+* 0d711c5 chore: scaffold project with uv and pytest

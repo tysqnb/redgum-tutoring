@@ -1,0 +1,2 @@
+v0.1.0          Baseline coordinator application
+v0.2.0          Second release: search, bounded fields and window editing

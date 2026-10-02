@@ -1,0 +1,3 @@
+e5809d4 Merge pull request #5 from story/05-availability: edit windows and reject duplicates
+1edafd1 Merge pull request #4 from story/04-tutors: search by subject and bound field lengths
+48dea18 Merge pull request #3 from story/03-students: search by family contact and bound field lengths
