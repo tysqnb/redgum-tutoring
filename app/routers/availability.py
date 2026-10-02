@@ -65,6 +65,25 @@ def add_window(
             },
             status_code=400,
         )
+    if availability_service.window_exists(
+        db,
+        tutor_id,
+        data["day_of_week"],
+        data["start_time"],
+        data["end_time"],
+    ):
+        errors.append("That availability window already exists.")
+        return render(
+            request,
+            "tutors/availability.html",
+            {
+                "tutor": tutor,
+                "windows": availability_service.windows_for_tutor(db, tutor_id),
+                "form": form,
+                "errors": errors,
+            },
+            status_code=400,
+        )
     availability_service.add_window(db, tutor_id, **data)
     flash(request, "Availability added.")
     return RedirectResponse(
@@ -139,6 +158,26 @@ def edit_window(
         "end_time": end_time,
     }
     if errors:
+        return render(
+            request,
+            "tutors/availability_edit.html",
+            {
+                "window": window,
+                "tutor": window.tutor,
+                "form": form,
+                "errors": errors,
+            },
+            status_code=400,
+        )
+    if availability_service.window_exists(
+        db,
+        window.tutor_id,
+        data["day_of_week"],
+        data["start_time"],
+        data["end_time"],
+        exclude_id=window.id,
+    ):
+        errors.append("That availability window already exists.")
         return render(
             request,
             "tutors/availability_edit.html",

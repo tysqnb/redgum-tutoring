@@ -2,6 +2,7 @@
 
 from datetime import time
 
+from app.models import AvailabilityWindow
 from app.services.availability import validate_window_form
 
 
@@ -106,3 +107,18 @@ def test_edit_window(admin_client, tutor_record, db_session):
     assert r.status_code == 303
     db_session.refresh(window)
     assert window.start_time == time(16, 0)
+
+
+def test_duplicate_window_is_rejected(admin_client, tutor_record, db_session):
+    before = db_session.query(AvailabilityWindow).count()
+    r = admin_client.post(
+        f"/tutors/{tutor_record.id}/availability",
+        data={
+            "day_of_week": "TUESDAY",
+            "start_time": "15:30",
+            "end_time": "19:00",
+        },
+    )
+    assert r.status_code == 400
+    assert "That availability window already exists." in r.text
+    assert db_session.query(AvailabilityWindow).count() == before
