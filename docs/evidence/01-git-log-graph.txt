@@ -1,4 +1,6 @@
-* c64daa6 (HEAD -> main) docs: add repository evidence captures
+* 20b9ae2 (HEAD -> main) fix(build): keep the uv cache inside the project directory
+* cfb8894 docs: refresh evidence captures to the final commit
+* c64daa6 docs: add repository evidence captures
 * 7c723d4 (tag: v0.2.0) chore: bump version to 0.2.0
 * ed65227 docs: record the five story tasks and the 0.2.0 changes
 * 50191e6 fix(app): replace deprecated startup event with lifespan

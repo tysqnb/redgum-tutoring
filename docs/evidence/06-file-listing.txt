@@ -56,3 +56,4 @@ tests/test_students.py
 tests/test_tutor_view.py
 tests/test_tutors.py
 uv.lock
+uv.toml
