@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Availability &mdash; {{ tutor.name }}</h1>
+<p class="muted">Bookings can only be made inside these repeating weekly windows.</p>
+{% if errors %}
+  <div class="errors"><ul>
+    {% for error in errors %}<li>{{ error }}</li>{% endfor %}
+  </ul></div>
+{% endif %}
+<table>
+  <thead>
+    <tr>
+      <th>Day</th>
+      <th>Start</th>
+      <th>End</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for w in windows %}
+    <tr>
+      <td>{{ w.day_of_week|title }}</td>
+      <td>{{ w.start_time|time12 }}</td>
+      <td>{{ w.end_time|time12 }}</td>
+      <td class="actions">
+        <form class="inline" method="post" action="/availability/{{ w.id }}/delete">
+          <button class="danger" type="submit">Remove</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% if not windows %}<p class="muted">No windows yet.</p>{% endif %}
+
+<h2>Add a window</h2>
+<form method="post" action="/tutors/{{ tutor.id }}/availability">
+  <label>Day
+    <select name="day_of_week">
+      <option value="">Choose a day</option>
+      {% for day in ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"] %}
+        <option value="{{ day }}" {% if form.get('day_of_week') == day %}selected{% endif %}>{{ day|title }}</option>
+      {% endfor %}
+    </select>
+  </label>
+  <div class="row">
+    <label>Start time
+      <input type="time" name="start_time" value="{{ form.get('start_time', '') }}">
+    </label>
+    <label>End time
+      <input type="time" name="end_time" value="{{ form.get('end_time', '') }}">
+    </label>
+  </div>
+  <p><button type="submit">Add window</button></p>
+</form>
+<p><a class="button secondary" href="/tutors">Back to tutors</a></p>
+{% endblock %}
