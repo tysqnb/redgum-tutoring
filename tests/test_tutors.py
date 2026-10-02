@@ -113,6 +113,7 @@ def test_availability_page_lists_windows(admin_client, tutor_record):
     assert response.status_code == 200
     assert "Tuesday" in response.text
     assert "3:30 pm" in response.text
+    assert response.text.index("Tuesday") < response.text.index("Thursday")
 
 
 def test_add_window(admin_client, tutor_record, db_session):

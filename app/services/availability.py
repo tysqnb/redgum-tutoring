@@ -17,6 +17,8 @@ DAYS_OF_WEEK = [
     "SUNDAY",
 ]
 
+DAY_INDEX = {day: index for index, day in enumerate(DAYS_OF_WEEK)}
+
 
 def _parse_time(value: str) -> time | None:
     try:
@@ -76,9 +78,16 @@ def windows_for_tutor(db: OrmSession, tutor_id: int) -> list[AvailabilityWindow]
     stmt = (
         select(AvailabilityWindow)
         .where(AvailabilityWindow.tutor_id == tutor_id)
-        .order_by(AvailabilityWindow.start_time, AvailabilityWindow.day_of_week)
+        .order_by(AvailabilityWindow.start_time)
     )
-    return list(db.scalars(stmt).all())
+    rows = list(db.scalars(stmt).all())
+    return sorted(
+        rows,
+        key=lambda window: (
+            DAY_INDEX.get(window.day_of_week, len(DAYS_OF_WEEK)),
+            window.start_time,
+        ),
+    )
 
 
 def window_exists(
