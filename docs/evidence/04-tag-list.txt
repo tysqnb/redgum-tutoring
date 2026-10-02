@@ -1,4 +1,4 @@
-﻿Captured from commit f52195f on 2026-10-02 23:14 (local time).
+﻿Captured from commit a552d16 on 2026-10-02 23:19 (local time).
 
 v0.1.0          Baseline coordinator application
 v0.2.0          Second release: search, bounded fields and window editing

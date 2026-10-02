@@ -1,11 +1,11 @@
-﻿Captured from commit f52195f on 2026-10-02 23:14 (local time).
+﻿Captured from commit a552d16 on 2026-10-02 23:19 (local time).
 
-* main                                 f52195f docs: capture repository evidence for the published tree
+* main                                 a552d16 docs: refresh the test capture with the final suite run
   story/03-students                    2255232 feat(story-03): bound student field lengths
   story/04-tutors                      ad69e4d feat(story-04): bound tutor field lengths
   story/05-availability                a408a93 feat(story-05): reject duplicate availability windows
   remotes/origin/HEAD                  -> origin/main
-  remotes/origin/main                  f52195f docs: capture repository evidence for the published tree
+  remotes/origin/main                  a552d16 docs: refresh the test capture with the final suite run
   remotes/origin/story/03-students     2255232 feat(story-03): bound student field lengths
   remotes/origin/story/04-tutors       ad69e4d feat(story-04): bound tutor field lengths
   remotes/origin/story/05-availability a408a93 feat(story-05): reject duplicate availability windows

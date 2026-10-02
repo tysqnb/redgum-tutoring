@@ -1,6 +1,7 @@
-﻿Captured from commit f52195f on 2026-10-02 23:14 (local time).
+﻿Captured from commit a552d16 on 2026-10-02 23:19 (local time).
 
-* f52195f (HEAD -> main, origin/main, origin/HEAD) docs: capture repository evidence for the published tree
+* a552d16 (HEAD -> main, origin/main, origin/HEAD) docs: refresh the test capture with the final suite run
+* f52195f docs: capture repository evidence for the published tree
 * 5d30ba8 docs: capture repository evidence for the submitted tree
 * d979d5b docs: capture final repository evidence
 * 24b5a4a docs: refresh evidence captures after the cache fix
