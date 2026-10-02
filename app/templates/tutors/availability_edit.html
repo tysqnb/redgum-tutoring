@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Edit availability &mdash; {{ tutor.name }}</h1>
+{% if errors %}
+  <div class="errors"><ul>
+    {% for error in errors %}<li>{{ error }}</li>{% endfor %}
+  </ul></div>
+{% endif %}
+<form method="post" action="/availability/{{ window.id }}/edit">
+  <label>Day
+    <select name="day_of_week">
+      <option value="">Choose a day</option>
+      {% for day in ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"] %}
+        <option value="{{ day }}" {% if form.get('day_of_week') == day %}selected{% endif %}>{{ day|title }}</option>
+      {% endfor %}
+    </select>
+  </label>
+  <div class="row">
+    <label>Start time
+      <input type="time" name="start_time" value="{{ form.get('start_time', '') }}">
+    </label>
+    <label>End time
+      <input type="time" name="end_time" value="{{ form.get('end_time', '') }}">
+    </label>
+  </div>
+  <p>
+    <button type="submit">Save</button>
+    <a class="button secondary" href="/tutors/{{ tutor.id }}/availability">Back</a>
+  </p>
+</form>
+{% endblock %}
