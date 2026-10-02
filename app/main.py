@@ -1,5 +1,6 @@
 """FastAPI application factory and module-level app instance."""
 
+from contextlib import asynccontextmanager
 from pathlib import Path
 
 from fastapi import FastAPI
@@ -12,8 +13,17 @@ from app.routers import auth, availability, students, tutors, views
 from app.seed import seed_demo
 
 
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    Base.metadata.create_all(engine)
+    if settings.seed_demo:
+        with SessionLocal() as db:
+            seed_demo(db)
+    yield
+
+
 def create_app() -> FastAPI:
-    app = FastAPI(title="Redgum Tutoring")
+    app = FastAPI(title="Redgum Tutoring", lifespan=lifespan)
 
     static_dir = Path(__file__).parent / "static"
     app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
@@ -23,13 +33,6 @@ def create_app() -> FastAPI:
     app.include_router(tutors.router)
     app.include_router(availability.router)
     app.include_router(views.router)
-
-    @app.on_event("startup")
-    def on_startup() -> None:
-        Base.metadata.create_all(engine)
-        if settings.seed_demo:
-            with SessionLocal() as db:
-                seed_demo(db)
 
     return app
 
