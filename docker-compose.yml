@@ -1,0 +1,15 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      REDGUM_SECRET_KEY: ${REDGUM_SECRET_KEY:-change-me-in-production}
+      REDGUM_DATABASE_URL: sqlite:////app/redgum.db
+      REDGUM_COOKIE_SECURE: ${REDGUM_COOKIE_SECURE:-false}
+      REDGUM_SEED: "1"
+    volumes:
+      - redgum-data:/app
+
+volumes:
+  redgum-data:
