@@ -25,16 +25,22 @@ def validate_tutor_form(
     name = name.strip()
     if not name:
         errors.append("Tutor name is required.")
+    elif len(name) > 100:
+        errors.append("Tutor name must be 100 characters or fewer.")
     data["name"] = name
 
     phone = phone.strip()
     if not phone:
         errors.append("Phone is required.")
+    elif len(phone) > 20:
+        errors.append("Phone must be 20 characters or fewer.")
     data["phone"] = phone
 
     subjects = subjects.strip()
     if not subjects:
         errors.append("Subjects is required.")
+    elif len(subjects) > 200:
+        errors.append("Subjects must be 200 characters or fewer.")
     data["subjects"] = subjects
 
     return data, errors

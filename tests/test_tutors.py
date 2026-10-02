@@ -63,6 +63,29 @@ def test_create_requires_subjects(admin_client):
     assert "Subjects is required." in response.text
 
 
+def test_phone_at_the_length_boundary(admin_client, db_session):
+    accepted = admin_client.post(
+        "/tutors/new",
+        data={
+            "name": "Boundary Tutor",
+            "phone": "0" * 20,
+            "subjects": "Maths",
+        },
+        follow_redirects=False,
+    )
+    assert accepted.status_code == 303
+    rejected = admin_client.post(
+        "/tutors/new",
+        data={
+            "name": "Too Long",
+            "phone": "0" * 21,
+            "subjects": "Maths",
+        },
+    )
+    assert rejected.status_code == 400
+    assert "Phone must be 20 characters or fewer." in rejected.text
+
+
 def test_edit_tutor_updates_row(admin_client, tutor_record, db_session):
     response = admin_client.post(
         f"/tutors/{tutor_record.id}/edit",
