@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Tutors</h1>
+<div class="toolbar">
+  <form method="get" action="/tutors">
+    <input type="text" name="q" value="{{ q }}" placeholder="Search by name or subject">
+    <button type="submit">Search</button>
+  </form>
+  <a class="button" href="/tutors/new">Add a tutor</a>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Subjects</th>
+      <th>Availability</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for tutor in tutors %}
+    <tr>
+      <td>{{ tutor.name }}</td>
+      <td>{{ tutor.phone }}</td>
+      <td>{{ tutor.subjects }}</td>
+      <td>{{ tutor.windows|length }} window{% if tutor.windows|length != 1 %}s{% endif %}</td>
+      <td class="actions">
+        <a class="secondary" href="/tutors/{{ tutor.id }}/edit">Edit</a>
+        <a class="secondary" href="/tutors/{{ tutor.id }}/availability">Availability</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% if not tutors %}<p class="muted">No tutors match "{{ q }}".</p>{% endif %}
+{% endblock %}
