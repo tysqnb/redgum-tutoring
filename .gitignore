@@ -2,5 +2,6 @@ redgum.db
 .venv/
 __pycache__/
 .pytest_cache/
+.uv-cache/
 .env
 *.pyc
