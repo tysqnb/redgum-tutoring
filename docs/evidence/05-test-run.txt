@@ -1,8 +1,8 @@
-﻿Captured from commit 9638e00 on 2026-10-02 12:24 (local time).
+﻿Captured from commit ed85869 on 2026-10-02 12:25 (local time).
 
 Command: uv run pytest -q -p no:warnings
 Exit code: 0
 
 ........................................................................ [ 76%]
 ......................                                                   [100%]
-94 passed in 11.46s
+94 passed in 11.42s

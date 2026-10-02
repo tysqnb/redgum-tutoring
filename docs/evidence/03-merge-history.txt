@@ -1,4 +1,4 @@
-﻿Captured from commit 9638e00 on 2026-10-02 12:24 (local time).
+﻿Captured from commit ed85869 on 2026-10-02 12:25 (local time).
 
 e5809d4 Merge pull request #5 from story/05-availability: edit windows and reject duplicates
 1edafd1 Merge pull request #4 from story/04-tutors: search by subject and bound field lengths
